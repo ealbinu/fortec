@@ -1,0 +1,118 @@
+/* RESPONSIVE RULES */
+@mobile: ~'(max-width: 767px)';
+
+/* COLORS */
+@b: #5F5E5E;
+@w: #FFFFFF;
+@main: #F9B800;
+@sec: #0083E1;
+
+/* FONTS */
+.font {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* STYLES */
+html {
+    padding-left: 40px;
+    padding-bottom: 0;
+    background: @main;
+    @media @mobile {
+        padding-left: 0;
+    }
+}
+body {
+    background: @w;
+    /* min-height: 100vh; */
+    .font;
+    color: @b;
+}
+.logo {
+    width: 240px;
+    padding: 10px 20px;
+    background: @w;
+    position: absolute;
+    z-index: 9;
+    left: 0;
+    top: 10px;
+    position: fixed;
+    box-shadow: 20px 0 40px rgba(0, 0, 0, 0.1);
+}
+
+.maincontent {
+    header {
+        background-image: url(img/head.jpg);
+        background-position: right;
+        background-size: cover;
+        text-align: right;
+        padding: 120px 0;
+        .is-size-1 {
+            font-weight: 900;
+            span {
+                border-bottom: 4px solid @main;
+            }
+        }
+    }
+    nav {
+        ul {
+            li {
+                a {
+                    display: block;
+                    background: @b;
+                    color:@w;
+                    display: flex;
+                    justify-content: center;
+                    padding: 20px 4px;
+                    font-weight: 700;
+                    svg {
+                        max-height: 26px;
+                        * {
+                            fill: @main;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+#nosotros {
+    background: @sec;
+    color: @w;
+    margin: 140px 0 0 0;
+    @media @mobile {
+        margin: 80px 0 0 0;
+    }
+    strong { color: @w; }
+    p {
+        padding: 40px 0;
+        @media @mobile {
+            text-align: center;
+            padding: 40px 20px 100px 20px;
+        }
+    }
+    .fldrs{
+        margin: 0;
+        padding: 0;
+        .image {
+            position: absolute;
+            bottom: 0; right: 0;
+            max-width: 280px;
+            @media @mobile {
+                max-width: 140px;
+            }
+        }
+    }
+}
+
+#nuestra-experiencia {
+    background-image: url(img/experiencia.jpg);
+    background-size: cover;
+    padding: 120px 0;
+    h2 { font-weight: 900; }
+    .timeline {
+        width: 700px;
+        
+    }
+}

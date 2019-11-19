@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        meta(name="description" content="Líder en el mercado papelero de México")
+        title Fortec | Renovados y fortalecidos
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css")
+        link(rel="stylesheet", href="app/app.css")
+    body
+        .logo: img(src="app/img/fortec.png", alt="Fortec")
+        section.maincontent
+            header
+                .container
+                    .column.is-8.is-offset-4
+                        .is-size-1 #[span RENOVADOS] #[br]#[span Y FORTALECIDOS]
+                        .is-size-5 Somos una marca fabricante y comercializadora de una amplia gama de productos de papelería escolar y de oficina.
+            nav
+                ul.columns.is-gapless.has-text-centered
+                    li.column
+                        a(href="#nosotros")
+                            include img/ico-nosotros.svg
+                            span Nosotros
+                    li.column
+                        a(href="#productos")
+                            include img/ico-productos.svg
+                            span Productos
+                    li.column
+                        a(href="#catalogo")
+                            include img/ico-catalogo.svg
+                            span Catálogo
+                    li.column
+                        a(href="#contacto")
+                            include img/ico-contacto.svg
+                            span Contacto
+        
+            section#nosotros
+                .container
+                    .columns.is-vcentered
+                        .column.is-8
+                            p Con más de #[strong 70 años en el mercado] hemos logrado introducir al mercado productos lideres como: Sobres, Folders, Agendas, Calendarios, Formas y Libros Contables, Cajas para Archivo, Papeles de Colores y otros más…
+                        .column.has-text-right.fldrs: figure.image: img(src="app/img/fortec-folders.png", alt="70 años en el mercado")
+
+            section#nuestra-experiencia
+                .container
+                    h2.is-size-1 Nuestra#[br]experiencia
+                    article.timeline
+                        .columns
+                            .column.is-4: .time 1946
+                            .column.text
+                                p Las raíces de Fortec se remontan a Importadora y Distribuidora Tam-Mex empresa fundada en 1946, donde a los 17 años ingresa a trabajar Celso Manuel Paredes Fernández, hijo de uno de los fundadores, quien al paso de los años estudia los procesos de impresión, manejo de papel y tintas en la Escuela de Artes Gráficas de los “Misioneros Josefinos”.
