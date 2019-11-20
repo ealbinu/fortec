@@ -49,6 +49,7 @@ body {
         .is-size-1 {
             font-weight: 900;
             span {
+                display: inline-block;
                 border-bottom: 4px solid @main;
             }
         }
@@ -110,9 +111,143 @@ body {
     background-image: url(img/experiencia.jpg);
     background-size: cover;
     padding: 120px 0;
-    h2 { font-weight: 900; }
+    h2 { font-weight: 900; line-height: 1; }
     .timeline {
-        width: 700px;
-        
+        margin-top: 120px;
+        background: @sec;
+        position: relative;
+        border-radius: 0 8px 8px 0;
+        @media @mobile {
+            margin-top: 20px;
+            border-radius: 0;
+        }
+        &:before {
+            content: "";
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: -100%;
+            top: 0;
+            background: @sec/1.2;
+        }
+        .time {
+            font-weight: 900;
+            color: @w;
+            font-size: 3rem;
+            margin: 5px 10px;
+            text-align: center;
+        }
+        .text {
+            background: @w;
+            font-size: 0.9rem;
+            padding: 30px;
+            margin-right: 30px;
+            margin-top: -120px;
+            margin-bottom: -120px;
+            border-radius: 8px;
+            box-shadow: 0 30px 30px rgba(0,0,0,0.2);
+            @media @mobile {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-right: 40px;
+                margin-left: 40px;
+            }
+        }
+    }
+}
+
+#productos {
+    padding: 140px 0;
+    h2 { font-weight: 900; line-height: 1; }
+    sidebar {
+        border-radius: 8px;
+        margin-top: 60px;
+        background: @sec;
+        color: @w;
+        padding: 20px;
+        box-shadow: 0 30px 30px rgba(0,0,0,0.2);
+        h3 { font-weight: 900; }
+        p { font-size: 0.9rem; }
+        .has-text-right {
+            margin: 10px 0 20px 0;
+        }
+        button {
+            border-radius: 6px;
+            box-shadow: 0 20px 20px rgba(0,0,0,0.2);
+            color: @sec;
+            font-weight: 700;
+            .font;
+            .button {
+                margin: -10px -10px -10px 30px;
+                transform: scale(1.1);
+                color: @w;
+                background: #F9B800;
+            }
+        }
+    }
+
+    .cardProduct {
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 20px 20px rgba(0,0,0,0.2);
+        .card-image, figure.image { border: none; }
+        img { border-radius: 8px; }
+        footer {
+            margin-top: -30px;
+            .font;
+            font-weight: 700;
+            transform: scale(1.05);
+            .button {
+                border: none;
+                background: @sec;
+                color: @w;
+                @media @mobile {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+
+#catalogo {
+    padding: 100px 0;
+    h2 { font-weight: 900; line-height: 1; }
+    h4 { font-weight: 900; }
+    .bannerCatalogo {
+        margin: 40px 0;
+        background-color: #E7DAB8;
+        background-image: url(img/catalogobg.jpg);
+        background-position: center;
+        background-size: cover;
+        padding: 80px 20px;
+        .button {
+            background: @b;
+            color: @w;
+            border:none;
+            .font;
+            font-weight: 900;
+            margin: 0 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+    }
+}
+
+
+#contacto {
+    padding: 80px 0;
+    h2 { font-weight: 900; line-height: 1; }
+    address {
+        margin: 60px 0;
+        font-style: normal;
+        h5 {
+            color: @main;
+            font-weight: 700;
+            margin: 20px 0 4px 0;
+        }
+        a { 
+            color: @sec;
+            font-weight: 700;
+            &:hover { color: @main; }
+        }
     }
 }

@@ -6,49 +6,165 @@ html(lang="es")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         meta(name="description" content="Líder en el mercado papelero de México")
         title Fortec | Renovados y fortalecidos
-        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css")
+        link(rel="stylesheet", href="https://unpkg.com/buefy/dist/buefy.min.css")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap")
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css")
         link(rel="stylesheet", href="app/app.css")
     body
-        .logo: img(src="app/img/fortec.png", alt="Fortec")
-        section.maincontent
-            header
-                .container
-                    .column.is-8.is-offset-4
-                        .is-size-1 #[span RENOVADOS] #[br]#[span Y FORTALECIDOS]
-                        .is-size-5 Somos una marca fabricante y comercializadora de una amplia gama de productos de papelería escolar y de oficina.
-            nav
-                ul.columns.is-gapless.has-text-centered
-                    li.column
-                        a(href="#nosotros")
-                            include img/ico-nosotros.svg
-                            span Nosotros
-                    li.column
-                        a(href="#productos")
-                            include img/ico-productos.svg
-                            span Productos
-                    li.column
-                        a(href="#catalogo")
-                            include img/ico-catalogo.svg
-                            span Catálogo
-                    li.column
-                        a(href="#contacto")
-                            include img/ico-contacto.svg
-                            span Contacto
-        
-            section#nosotros
-                .container
-                    .columns.is-vcentered
-                        .column.is-8
-                            p Con más de #[strong 70 años en el mercado] hemos logrado introducir al mercado productos lideres como: Sobres, Folders, Agendas, Calendarios, Formas y Libros Contables, Cajas para Archivo, Papeles de Colores y otros más…
-                        .column.has-text-right.fldrs: figure.image: img(src="app/img/fortec-folders.png", alt="70 años en el mercado")
+        #app
+            .logo(data-aos="fade-right" data-aos-duration="2000"): img(src="app/img/fortec.png", alt="Fortec")
+            section.maincontent
+                header(data-aos="fade-down" data-aos-duration="600")
+                    .container
+                        .column.is-8.is-offset-4
+                            .is-size-1 #[span(data-aos="fade-left" data-aos-duration="2000" data-aos-delay="500") RENOVADOS] #[br]#[span(data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000") Y FORTALECIDOS]
+                            .is-size-5 Somos una marca fabricante y comercializadora de una amplia gama de productos de papelería escolar y de oficina.
+                nav(data-aos="zoom-out-down" data-aos-duration="2000")
+                    ul.columns.is-gapless.has-text-centered
+                        li.column
+                            a(href="#nosotros")
+                                include img/ico-nosotros.svg
+                                span Nosotros
+                        li.column
+                            a(href="#productos")
+                                include img/ico-productos.svg
+                                span Productos
+                        li.column
+                            a(href="#catalogo")
+                                include img/ico-catalogo.svg
+                                span Catálogo
+                        li.column
+                            a(href="#contacto")
+                                include img/ico-contacto.svg
+                                span Contacto
+            
+                section#nosotros(data-aos="zoom-in" data-aos-delay="2000")
+                    .container
+                        .columns.is-gapless.is-vcentered
+                            .column.is-8(data-aos="fade-right" data-aos-delay="2500")
+                                p Con más de #[strong 70 años en el mercado] hemos logrado introducir al mercado productos lideres como: Sobres, Folders, Agendas, Calendarios, Formas y Libros Contables, Cajas para Archivo, Papeles de Colores y otros más…
+                            .column.has-text-right.fldrs: figure.image: img(src="app/img/fortec-folders.png", alt="70 años en el mercado" data-aos="fade-up" data-aos-delay="2500")
 
-            section#nuestra-experiencia
-                .container
-                    h2.is-size-1 Nuestra#[br]experiencia
-                    article.timeline
+                section#nuestra-experiencia
+                    .container
+                        h2.is-size-1 Nuestra#[br]experiencia
+                        
+                        .columns: .column.is-8: article.timeline(data-aos="fade-right")
+                                .columns.is-vcentered
+                                    .column.is-4: .time 1946
+                                    .column.text
+                                        p Las raíces de Fortec se remontan a Importadora y Distribuidora Tam-Mex empresa fundada en 1946, donde a los 17 años ingresa a trabajar Celso Manuel Paredes Fernández, hijo de uno de los fundadores, quien al paso de los años estudia los procesos de impresión, manejo de papel y tintas en la Escuela de Artes Gráficas de los “Misioneros Josefinos”.
+                        .columns: .column.is-8.is-offset-1: article.timeline(data-aos="fade-right")
+                                .columns.is-vcentered
+                                    .column.is-4: .time 1961
+                                    .column.text
+                                        p Este aprendizajes que le permiten fundar su propia compañía en 1961, bajo el nombre de Pafer, la que 4 años más tarde, en 1965, fusiona con Tam-Mex para cubrir la demanda de formas administrativas y contable del mercado nacional.
+                        .columns: .column.is-8.is-offset-2: article.timeline(data-aos="fade-right")
+                                .columns.is-vcentered
+                                    .column.is-4: .time 1968
+                                    .column.text
+                                        p 3 años después, en 1968, la empresa adopta el nombre de Formas Técnicas Contables (FORTEC) para después ser fusionada y conocida como Irasa-Fortec, hasta que el 1 de noviembre de 2016, vuelve a nacer como Comercial Fortec, bajo la Dirección del Ing. Enrique Paredes, quien con ello hace un homenaje a la obra de su padre, Don Manuel Paredes (qepd).
+
+                section#productos
+                    .container
+                        h2.is-size-1 Productos
                         .columns
-                            .column.is-4: .time 1946
-                            .column.text
-                                p Las raíces de Fortec se remontan a Importadora y Distribuidora Tam-Mex empresa fundada en 1946, donde a los 17 años ingresa a trabajar Celso Manuel Paredes Fernández, hijo de uno de los fundadores, quien al paso de los años estudia los procesos de impresión, manejo de papel y tintas en la Escuela de Artes Gráficas de los “Misioneros Josefinos”.
+                            sidebar.column.is-3
+                                h3.is-size-4 Folders
+                                p Manejamos tamaños como carta y oficio, folders de color tradicional, con colores intensos y lux.
+                                .has-text-right: button().button.is-white.is-small(data-aos="fade-left")
+                                    span Ver folders
+                                    .button.is-warning: i.fas.fa-arrow-right
+                                h3.is-size-4 Sobre
+                                p Amplio surtido de sobres manila, blancos, especiales y de correspondencia.
+                                .has-text-right: button().button.is-white.is-small(data-aos="fade-left")
+                                    span Ver sobres
+                                    .button.is-warning: i.fas.fa-arrow-right
+                                h3.is-size-4 Papeles
+                                p Encuentra papeles de colores, neón, pastel y sunshine.
+                                .has-text-right: button().button.is-white.is-small(data-aos="fade-left")
+                                    span Ver papeles
+                                    .button.is-warning: i.fas.fa-arrow-right
+                                h3.is-size-4 Carpetas
+                                p Carpetas en múltiples tamaños, al igual que carpetas registradoras.
+                                .has-text-right: button().button.is-white.is-small(data-aos="fade-left")
+                                    span Ver carpetas
+                                    .button.is-warning: i.fas.fa-arrow-right
+                            section.column.products-categories
+                                
+                                .section: .columns.is-multiline.is-mobile
+                                    mixin cardCategory(img, nombre)
+                                        .column.is-6-mobile.is-4-tablet(data-aos="flip-left")
+                                            .card.cardProduct
+                                                .card-image: figure.image: img(src="app/img/productos/"+img)
+                                                footer.card-footer
+                                                    a(href="#").card-footer-item.button.is-info=nombre
+                                    +cardCategory('carpetas-blancas.jpg', 'Carpetas Blancas')
+                                    +cardCategory('burbuja.jpg', 'Burbuja')
+                                    +cardCategory('registradores.jpg', 'Registradores')
+                                    +cardCategory('folder-intenso.jpg', 'Folder Intenso')
+                                    +cardCategory('caja-archivo.jpg', 'Caja Archivo')
+                                    +cardCategory('calculadoras.jpg', 'Calculadoras')
+
+
+                section#catalogo
+                    .container
+                        h2.is-size-1 Catálogo
+                    .bannerCatalogo(data-aos="zoom-out"): .container
+                        .columns.is-vcentered
+                            .column.is-6
+                                h4.is-size-3 Catálogo de agendas
+                                ul
+                                    li Días feriados oficiales
+                                    li Larga distancia nacional e internacional
+                                    li Husos horarios
+                                    li Teléfonos de emergencia y hospitales
+                                    li y más...
+                            .column.has-text-centered
+                                include img/ico-download.svg
+                                br
+                                a(href="CATALOGO-agendas.pdf" target="_blank").button
+                                    div Descargar catálogo
+                    .bannerCatalogo(data-aos="zoom-out"): .container
+                        .columns.is-vcentered
+                            .column.is-6
+                                h4.is-size-3 Catálogo de productos
+                                ul
+                                    li Folders
+                                    li Carpetas
+                                    li Cajas archivo
+                                    li Calculadoras
+                                    li y más...
+                            .column.has-text-centered
+                                include img/ico-download.svg
+                                br
+                                a(href="CATALOGO.pdf" target="_blank").button
+                                    div Descargar catálogo
+                
+                section#contacto
+                    .container
+                        h2.is-size-1 Contacto
+                        .columns
+                            address.column.is-6
+                                h5.is-size-5 Dirección
+                                p Av. Primero de Mayo No 120 Piso 2, Col. San Andrés Atoto, Naucalpan de Juárez Estado de México, C.P. 53500, México.
+                                    button(@click="vermapa = true") Ver mapa
+                                b-modal(:active.sync="vermapa")
+                                    | <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.7492551681985!2d-99.22941148479451!3d19.466374744643378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20251bf32ae35%3A0xd7efcdd27c1b4f57!2sPiso%202%2C%20Av.%20Primero%20de%20Mayo%20120%2C%20Naucalpan%2C%2053489%20Naucalpan%20de%20Ju%C3%A1rez%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1574274003614!5m2!1ses-419!2smx" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                                h5.is-size-5 Correo electrónico
+                                p: a(href="mailto:ventas@fortec.com.mx") ventas@fortec.com.mx
+                                h5.is-size-5 Teléfono
+                                p: a(href="tel:5515550680") 55 1555 0680
+                                p: a(href="tel:5515550681") 55 1555 0681
+
+
+
+
+
+
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js")
+        script(src="https://unpkg.com/buefy/dist/buefy.min.js")
+        script(src="app/app.js")
+
+
