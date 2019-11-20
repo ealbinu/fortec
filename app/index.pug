@@ -19,7 +19,7 @@ html(lang="es")
                     .container
                         .column.is-8.is-offset-4
                             .is-size-1 #[span(data-aos="fade-left" data-aos-duration="2000" data-aos-delay="500") RENOVADOS] #[br]#[span(data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000") Y FORTALECIDOS]
-                            .is-size-5 Somos una marca fabricante y comercializadora de una amplia gama de productos de papelería escolar y de oficina.
+                            .is-size-5 Somos una marca fabricante y comercializadora #[br]de una amplia gama de productos #[br]de papelería escolar y de oficina.
                 nav(data-aos="zoom-out-down" data-aos-duration="2000")
                     ul.columns.is-gapless.has-text-centered
                         li.column
@@ -67,10 +67,11 @@ html(lang="es")
                                         p 3 años después, en 1968, la empresa adopta el nombre de Formas Técnicas Contables (FORTEC) para después ser fusionada y conocida como Irasa-Fortec, hasta que el 1 de noviembre de 2016, vuelve a nacer como Comercial Fortec, bajo la Dirección del Ing. Enrique Paredes, quien con ello hace un homenaje a la obra de su padre, Don Manuel Paredes (qepd).
 
                 section#productos
-                    .container
+                    .section.container
                         h2.is-size-1 Productos
+                    .container
                         .columns
-                            sidebar.column.is-3
+                            aside.column.is-3
                                 h3.is-size-4 Folders
                                 p Manejamos tamaños como carta y oficio, folders de color tradicional, con colores intensos y lux.
                                 .has-text-right: button().button.is-white.is-small(data-aos="fade-left")
@@ -109,7 +110,7 @@ html(lang="es")
 
 
                 section#catalogo
-                    .container
+                    .section.container
                         h2.is-size-1 Catálogo
                     .bannerCatalogo(data-aos="zoom-out"): .container
                         .columns.is-vcentered
@@ -143,20 +144,43 @@ html(lang="es")
                                     div Descargar catálogo
                 
                 section#contacto
-                    .container
+                    .section.container
                         h2.is-size-1 Contacto
                         .columns
                             address.column.is-6
                                 h5.is-size-5 Dirección
                                 p Av. Primero de Mayo No 120 Piso 2, Col. San Andrés Atoto, Naucalpan de Juárez Estado de México, C.P. 53500, México.
-                                    button(@click="vermapa = true") Ver mapa
-                                b-modal(:active.sync="vermapa")
-                                    | <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.7492551681985!2d-99.22941148479451!3d19.466374744643378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20251bf32ae35%3A0xd7efcdd27c1b4f57!2sPiso%202%2C%20Av.%20Primero%20de%20Mayo%20120%2C%20Naucalpan%2C%2053489%20Naucalpan%20de%20Ju%C3%A1rez%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1574274003614!5m2!1ses-419!2smx" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                                button(@click="vermapa = true").button.is-small
+                                    i.fas.fa-map-marker
+                                    span Ver mapa
+                                b-modal(:active.sync="vermapa" has-modal-card): .card
+                                    .card-image: iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.7492551681985!2d-99.22941148479451!3d19.466374744643378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20251bf32ae35%3A0xd7efcdd27c1b4f57!2sPiso%202%2C%20Av.%20Primero%20de%20Mayo%20120%2C%20Naucalpan%2C%2053489%20Naucalpan%20de%20Ju%C3%A1rez%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1574274003614!5m2!1ses-419!2smx" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="")
+                                    .card-content
+                                        .media
+                                            .media-left: figure.image: img(src="app/img/fortec.png", alt="Fortec")
+                                            .media-content
+                                                p Av. Primero de Mayo No 120 Piso 2, Col. San Andrés Atoto, Naucalpan de Juárez Estado de México, C.P. 53500, México.
                                 h5.is-size-5 Correo electrónico
                                 p: a(href="mailto:ventas@fortec.com.mx") ventas@fortec.com.mx
                                 h5.is-size-5 Teléfono
                                 p: a(href="tel:5515550680") 55 1555 0680
                                 p: a(href="tel:5515550681") 55 1555 0681
+                            
+                            form(action="#").column
+                                h5.is-size-5 ¿En qué área podemos ayudarte?
+                                b-field()
+                                    b-radio-button(v-model="form.area" native-value="Cotización" type="is-info"): span Cotización
+                                    b-radio-button(v-model="form.area" native-value="Contacto" type="is-info"): span Contacto
+                                    b-radio-button(v-model="form.area" native-value="Duda o queja" type="is-info"): span Duda o queja
+                                b-field(label="Nombre"): b-input(v-model="form.nombre")
+                                .columns
+                                    .column: b-field(label="Correo electrónico"): b-input(v-model="form.correo")
+                                    .column: b-field(label="Teléfono"): b-input(v-model="form.telefono")
+                                b-field(label="Mensaje"): b-input(v-model="form.mensaje" type="textarea")
+                
+                footer.has-text-centered Todos los derechos reservados Fortec 2019
+
+
 
 
 
@@ -164,6 +188,7 @@ html(lang="es")
 
 
         script(src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js")
+        script(src="https://unpkg.com/vue")
         script(src="https://unpkg.com/buefy/dist/buefy.min.js")
         script(src="app/app.js")
 

@@ -20,7 +20,7 @@
           <div class="container">
             <div class="column is-8 is-offset-4">
               <div class="is-size-1"><span data-aos="fade-left" data-aos-duration="2000" data-aos-delay="500">RENOVADOS</span> <br/><span data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000">Y FORTALECIDOS</span></div>
-              <div class="is-size-5">Somos una marca fabricante y comercializadora de una amplia gama de productos de papelería escolar y de oficina.</div>
+              <div class="is-size-5">Somos una marca fabricante y comercializadora <br/>de una amplia gama de productos <br/>de papelería escolar y de oficina.</div>
             </div>
           </div>
         </header>
@@ -156,10 +156,12 @@
           </div>
         </section>
         <section id="productos">
-          <div class="container">
+          <div class="section container">
             <h2 class="is-size-1">Productos</h2>
+          </div>
+          <div class="container">
             <div class="columns">
-              <sidebar class="column is-3">
+              <aside class="column is-3">
                 <h3 class="is-size-4">Folders</h3>
                 <p>Manejamos tamaños como carta y oficio, folders de color tradicional, con colores intensos y lux.</p>
                 <div class="has-text-right">
@@ -188,7 +190,7 @@
                     <div class="button is-warning"><i class="fas fa-arrow-right"></i></div>
                   </button>
                 </div>
-              </sidebar>
+              </aside>
               <section class="column products-categories">
                 <div class="section">
                   <div class="columns is-multiline is-mobile">
@@ -247,7 +249,7 @@
           </div>
         </section>
         <section id="catalogo">
-          <div class="container">
+          <div class="section container">
             <h2 class="is-size-1">Catálogo</h2>
           </div>
           <div class="bannerCatalogo" data-aos="zoom-out">
@@ -322,27 +324,70 @@
           </div>
         </section>
         <section id="contacto">
-          <div class="container">
+          <div class="section container">
             <h2 class="is-size-1">Contacto</h2>
             <div class="columns">
               <address class="column is-6">
                 <h5 class="is-size-5">Dirección</h5>
-                <p>Av. Primero de Mayo No 120 Piso 2, Col. San Andrés Atoto, Naucalpan de Juárez Estado de México, C.P. 53500, México.
-                  <button @click="vermapa = true">Ver mapa</button>
-                </p>
-                <b-modal :active.sync="vermapa"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.7492551681985!2d-99.22941148479451!3d19.466374744643378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20251bf32ae35%3A0xd7efcdd27c1b4f57!2sPiso%202%2C%20Av.%20Primero%20de%20Mayo%20120%2C%20Naucalpan%2C%2053489%20Naucalpan%20de%20Ju%C3%A1rez%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1574274003614!5m2!1ses-419!2smx" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe></b-modal>
+                <p>Av. Primero de Mayo No 120 Piso 2, Col. San Andrés Atoto, Naucalpan de Juárez Estado de México, C.P. 53500, México.</p>
+                <button class="button is-small" @click="vermapa = true"><i class="fas fa-map-marker"></i><span>Ver mapa</span></button>
+                <b-modal :active.sync="vermapa" has-modal-card="has-modal-card">
+                  <div class="card">
+                    <div class="card-image">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.7492551681985!2d-99.22941148479451!3d19.466374744643378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20251bf32ae35%3A0xd7efcdd27c1b4f57!2sPiso%202%2C%20Av.%20Primero%20de%20Mayo%20120%2C%20Naucalpan%2C%2053489%20Naucalpan%20de%20Ju%C3%A1rez%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1574274003614!5m2!1ses-419!2smx" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    </div>
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-left">
+                          <figure class="image"><img src="app/img/fortec.png" alt="Fortec"/></figure>
+                        </div>
+                        <div class="media-content">
+                          <p>Av. Primero de Mayo No 120 Piso 2, Col. San Andrés Atoto, Naucalpan de Juárez Estado de México, C.P. 53500, México.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </b-modal>
                 <h5 class="is-size-5">Correo electrónico</h5>
                 <p><a href="mailto:ventas@fortec.com.mx">ventas@fortec.com.mx</a></p>
                 <h5 class="is-size-5">Teléfono</h5>
                 <p><a href="tel:5515550680">55 1555 0680</a></p>
                 <p><a href="tel:5515550681">55 1555 0681</a></p>
               </address>
+              <form class="column" action="#">
+                <h5 class="is-size-5">¿En qué área podemos ayudarte?</h5>
+                <b-field>
+                  <b-radio-button v-model="form.area" native-value="Cotización" type="is-info"><span>Cotización</span></b-radio-button>
+                  <b-radio-button v-model="form.area" native-value="Contacto" type="is-info"><span>Contacto</span></b-radio-button>
+                  <b-radio-button v-model="form.area" native-value="Duda o queja" type="is-info"><span>Duda o queja</span></b-radio-button>
+                </b-field>
+                <b-field label="Nombre">
+                  <b-input v-model="form.nombre"></b-input>
+                </b-field>
+                <div class="columns">
+                  <div class="column">
+                    <b-field label="Correo electrónico">
+                      <b-input v-model="form.correo"></b-input>
+                    </b-field>
+                  </div>
+                  <div class="column">
+                    <b-field label="Teléfono">
+                      <b-input v-model="form.telefono"></b-input>
+                    </b-field>
+                  </div>
+                </div>
+                <b-field label="Mensaje">
+                  <b-input v-model="form.mensaje" type="textarea"></b-input>
+                </b-field>
+              </form>
             </div>
           </div>
         </section>
+        <footer class="has-text-centered">Todos los derechos reservados Fortec 2019</footer>
       </section>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
     <script src="app/app.js"></script>
   </body>
