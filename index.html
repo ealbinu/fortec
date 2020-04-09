@@ -162,86 +162,58 @@
           <div class="container">
             <div class="columns">
               <aside class="column is-3">
-                <h3 class="is-size-4">Folders</h3>
-                <p>Manejamos tamaños como carta y oficio, folders de color tradicional, con colores intensos y lux.</p>
-                <div class="has-text-right">
-                  <button class="button is-white is-small" data-aos="fade-left"><span>Ver folders</span>
-                    <div class="button is-warning"><i class="fas fa-arrow-right"></i></div>
-                  </button>
-                </div>
-                <h3 class="is-size-4">Sobre</h3>
-                <p>Amplio surtido de sobres manila, blancos, especiales y de correspondencia.</p>
-                <div class="has-text-right">
-                  <button class="button is-white is-small" data-aos="fade-left"><span>Ver sobres</span>
-                    <div class="button is-warning"><i class="fas fa-arrow-right"></i></div>
-                  </button>
-                </div>
-                <h3 class="is-size-4">Papeles</h3>
-                <p>Encuentra papeles de colores, neón, pastel y sunshine.</p>
-                <div class="has-text-right">
-                  <button class="button is-white is-small" data-aos="fade-left"><span>Ver papeles</span>
-                    <div class="button is-warning"><i class="fas fa-arrow-right"></i></div>
-                  </button>
-                </div>
-                <h3 class="is-size-4">Carpetas</h3>
-                <p>Carpetas en múltiples tamaños, al igual que carpetas registradoras.</p>
-                <div class="has-text-right">
-                  <button class="button is-white is-small" data-aos="fade-left"><span>Ver carpetas</span>
-                    <div class="button is-warning"><i class="fas fa-arrow-right"></i></div>
-                  </button>
+                <!--
+                h3.is-size-4 Folders
+                p Manejamos tamaños como carta y oficio, folders de color tradicional, con colores intensos y lux.
+                .has-text-right: button.button.is-white.is-small(data-aos="fade-left")
+                    span Ver folders
+                    .button.is-warning: i.fas.fa-arrow-right
+                h3.is-size-4 Sobre
+                p Amplio surtido de sobres manila, blancos, especiales y de correspondencia.
+                .has-text-right: button.button.is-white.is-small(data-aos="fade-left")
+                    span Ver sobres
+                    .button.is-warning: i.fas.fa-arrow-right
+                h3.is-size-4 Papeles
+                p Encuentra papeles de colores, neón, pastel y sunshine.
+                .has-text-right: button.button.is-white.is-small(data-aos="fade-left")
+                    span Ver papeles
+                    .button.is-warning: i.fas.fa-arrow-right
+                h3.is-size-4 Carpetas
+                p Carpetas en múltiples tamaños, al igual que carpetas registradoras.
+                .has-text-right: button.button.is-white.is-small(data-aos="fade-left")
+                    span Ver carpetas
+                    .button.is-warning: i.fas.fa-arrow-right
+                -->
+                <!-- CATEGORIAS-->
+                <div v-for="cats in categorias">
+                  <!--.has-text-right(v-if="!Array.isArray(cats)"): button.button.is-white.is-small
+                  span Ver {{cats}}
+                  .button.is-warning: i.fas.fa-arrow-right
+                  -->
+                  <h3 class="is-size-4" v-if="!Array.isArray(cats)">{{cats}}</h3>
+                  <div class="has-text-right categoriasbtns" v-if="Array.isArray(cats)">
+                    <button class="button is-small" v-for="cat in cats" style="margin:5px;" :class="(categoriaactiva === cat) ? 'is-active' : 'is-white'" @click="categoriaactiva = cat">{{cat}}</button>
+                  </div>
                 </div>
               </aside>
               <section class="column products-categories">
                 <div class="section">
                   <div class="columns is-multiline is-mobile">
-                                        <div class="column is-6-mobile is-4-tablet" data-aos="flip-left">
-                                          <div class="card cardProduct">
-                                            <div class="card-image">
-                                              <figure class="image"><img src="app/img/productos/carpetas-blancas.jpg"/></figure>
-                                            </div>
-                                            <footer class="card-footer"><a class="card-footer-item button is-info" href="#">Carpetas Blancas</a></footer>
-                                          </div>
-                                        </div>
-                                        <div class="column is-6-mobile is-4-tablet" data-aos="flip-left">
-                                          <div class="card cardProduct">
-                                            <div class="card-image">
-                                              <figure class="image"><img src="app/img/productos/burbuja.jpg"/></figure>
-                                            </div>
-                                            <footer class="card-footer"><a class="card-footer-item button is-info" href="#">Burbuja</a></footer>
-                                          </div>
-                                        </div>
-                                        <div class="column is-6-mobile is-4-tablet" data-aos="flip-left">
-                                          <div class="card cardProduct">
-                                            <div class="card-image">
-                                              <figure class="image"><img src="app/img/productos/registradores.jpg"/></figure>
-                                            </div>
-                                            <footer class="card-footer"><a class="card-footer-item button is-info" href="#">Registradores</a></footer>
-                                          </div>
-                                        </div>
-                                        <div class="column is-6-mobile is-4-tablet" data-aos="flip-left">
-                                          <div class="card cardProduct">
-                                            <div class="card-image">
-                                              <figure class="image"><img src="app/img/productos/folder-intenso.jpg"/></figure>
-                                            </div>
-                                            <footer class="card-footer"><a class="card-footer-item button is-info" href="#">Folder Intenso</a></footer>
-                                          </div>
-                                        </div>
-                                        <div class="column is-6-mobile is-4-tablet" data-aos="flip-left">
-                                          <div class="card cardProduct">
-                                            <div class="card-image">
-                                              <figure class="image"><img src="app/img/productos/caja-archivo.jpg"/></figure>
-                                            </div>
-                                            <footer class="card-footer"><a class="card-footer-item button is-info" href="#">Caja Archivo</a></footer>
-                                          </div>
-                                        </div>
-                                        <div class="column is-6-mobile is-4-tablet" data-aos="flip-left">
-                                          <div class="card cardProduct">
-                                            <div class="card-image">
-                                              <figure class="image"><img src="app/img/productos/calculadoras.jpg"/></figure>
-                                            </div>
-                                            <footer class="card-footer"><a class="card-footer-item button is-info" href="#">Calculadoras</a></footer>
-                                          </div>
-                                        </div>
+                    <div class="column is-6-mobile is-4-tablet" data-aos="flip-left" v-for="(prod,index) in productos" v-if="prod.categoria1 == categoriaactiva || prod.categoria2 == categoriaactiva">
+                      <div class="card cardProduct">
+                        <div class="card-image">
+                          <figure class="image has-text-centered"><img :src="'app/img/productos/'+prod.image1" style="max-height:300px; width: auto; margin: 0 auto;"/></figure>
+                        </div>
+                        <footer class="card-footer">
+                          <div class="card-footer-item button is-info">{{prod.title}}</div>
+                        </footer>
+                        <footer class="card-footer">
+                          <div class="card-footer-item">
+                            <p class="is-size-7">{{prod.content}}</p>
+                          </div>
+                        </footer>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -389,6 +361,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+    <script src="app/productos.js"></script>
     <script src="app/app.js"></script>
   </body>
 </html>

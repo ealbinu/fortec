@@ -72,42 +72,45 @@ html(lang="es")
                     .container
                         .columns
                             aside.column.is-3
-                                h3.is-size-4 Folders
-                                p Manejamos tamaños como carta y oficio, folders de color tradicional, con colores intensos y lux.
-                                .has-text-right: button().button.is-white.is-small(data-aos="fade-left")
-                                    span Ver folders
-                                    .button.is-warning: i.fas.fa-arrow-right
-                                h3.is-size-4 Sobre
-                                p Amplio surtido de sobres manila, blancos, especiales y de correspondencia.
-                                .has-text-right: button().button.is-white.is-small(data-aos="fade-left")
-                                    span Ver sobres
-                                    .button.is-warning: i.fas.fa-arrow-right
-                                h3.is-size-4 Papeles
-                                p Encuentra papeles de colores, neón, pastel y sunshine.
-                                .has-text-right: button().button.is-white.is-small(data-aos="fade-left")
-                                    span Ver papeles
-                                    .button.is-warning: i.fas.fa-arrow-right
-                                h3.is-size-4 Carpetas
-                                p Carpetas en múltiples tamaños, al igual que carpetas registradoras.
-                                .has-text-right: button().button.is-white.is-small(data-aos="fade-left")
-                                    span Ver carpetas
-                                    .button.is-warning: i.fas.fa-arrow-right
-                            section.column.products-categories
-                                
-                                .section: .columns.is-multiline.is-mobile
-                                    mixin cardCategory(img, nombre)
-                                        .column.is-6-mobile.is-4-tablet(data-aos="flip-left")
-                                            .card.cardProduct
-                                                .card-image: figure.image: img(src="app/img/productos/"+img)
-                                                footer.card-footer
-                                                    a(href="#").card-footer-item.button.is-info=nombre
-                                    +cardCategory('carpetas-blancas.jpg', 'Carpetas Blancas')
-                                    +cardCategory('burbuja.jpg', 'Burbuja')
-                                    +cardCategory('registradores.jpg', 'Registradores')
-                                    +cardCategory('folder-intenso.jpg', 'Folder Intenso')
-                                    +cardCategory('caja-archivo.jpg', 'Caja Archivo')
-                                    +cardCategory('calculadoras.jpg', 'Calculadoras')
+                                //
+                                    h3.is-size-4 Folders
+                                    p Manejamos tamaños como carta y oficio, folders de color tradicional, con colores intensos y lux.
+                                    .has-text-right: button.button.is-white.is-small(data-aos="fade-left")
+                                        span Ver folders
+                                        .button.is-warning: i.fas.fa-arrow-right
+                                    h3.is-size-4 Sobre
+                                    p Amplio surtido de sobres manila, blancos, especiales y de correspondencia.
+                                    .has-text-right: button.button.is-white.is-small(data-aos="fade-left")
+                                        span Ver sobres
+                                        .button.is-warning: i.fas.fa-arrow-right
+                                    h3.is-size-4 Papeles
+                                    p Encuentra papeles de colores, neón, pastel y sunshine.
+                                    .has-text-right: button.button.is-white.is-small(data-aos="fade-left")
+                                        span Ver papeles
+                                        .button.is-warning: i.fas.fa-arrow-right
+                                    h3.is-size-4 Carpetas
+                                    p Carpetas en múltiples tamaños, al igual que carpetas registradoras.
+                                    .has-text-right: button.button.is-white.is-small(data-aos="fade-left")
+                                        span Ver carpetas
+                                        .button.is-warning: i.fas.fa-arrow-right
+                                // CATEGORIAS
+                                div(v-for="cats in categorias")
+                                    //.has-text-right(v-if="!Array.isArray(cats)"): button.button.is-white.is-small
+                                        span Ver {{cats}}
+                                        .button.is-warning: i.fas.fa-arrow-right
+                                    h3.is-size-4(v-if="!Array.isArray(cats)") {{cats}}
+                                    .has-text-right(v-if="Array.isArray(cats)").categoriasbtns
+                                        button.button.is-small(v-for="cat in cats" style="margin:5px;" :class="(categoriaactiva === cat) ? 'is-active' : 'is-white'" @click="categoriaactiva = cat") {{cat}}
 
+                            section.column.products-categories
+                                .section: .columns.is-multiline.is-mobile
+                                    .column.is-6-mobile.is-4-tablet(data-aos="flip-left" v-for="(prod,index) in productos" v-if="prod.categoria1 == categoriaactiva || prod.categoria2 == categoriaactiva")
+                                        .card.cardProduct
+                                            .card-image: figure.image.has-text-centered: img(:src="'app/img/productos/'+prod.image1" style="max-height:300px; width: auto; margin: 0 auto;")
+                                            footer.card-footer
+                                                .card-footer-item.button.is-info {{prod.title}}
+                                            footer.card-footer
+                                                .card-footer-item: p.is-size-7 {{prod.content}}
 
                 section#catalogo
                     .section.container
@@ -190,6 +193,7 @@ html(lang="es")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js")
         script(src="https://unpkg.com/vue")
         script(src="https://unpkg.com/buefy/dist/buefy.min.js")
+        script(src="app/productos.js")
         script(src="app/app.js")
 
 
