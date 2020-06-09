@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <meta name="description" content="Líder en el mercado papelero de México"/>
     <title>Fortec | Renovados y fortalecidos</title>
+    <link rel="icon" type="image/png" href="favicon.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
     <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900&amp;display=swap"/>
@@ -326,31 +327,37 @@
                 <p><a href="tel:5515550680">55 1555 0680</a></p>
                 <p><a href="tel:5515550681">55 1555 0681</a></p>
               </address>
-              <form class="column" action="#">
+              <form class="column" action="https://www.dragonbarbudo.com/api/email.php" method="get">
+                <input type="hidden" name="_to" value="ventas@fortec.com.mx"/>
+                <input type="hidden" name="_subject" value="Mensaje de Fortec.com.mx"/>
+                <input type="hidden" name="_redirect" value="http://fortec.com.mx?enviado#contacto"/>
                 <h5 class="is-size-5">¿En qué área podemos ayudarte?</h5>
                 <b-field>
-                  <b-radio-button v-model="form.area" native-value="Cotización" type="is-info"><span>Cotización</span></b-radio-button>
-                  <b-radio-button v-model="form.area" native-value="Contacto" type="is-info"><span>Contacto</span></b-radio-button>
-                  <b-radio-button v-model="form.area" native-value="Duda o queja" type="is-info"><span>Duda o queja</span></b-radio-button>
+                  <b-radio-button v-model="form.area" name="Area" native-value="Cotización" type="is-info"><span>Cotización</span></b-radio-button>
+                  <b-radio-button v-model="form.area" name="Area" native-value="Contacto" type="is-info"><span>Contacto</span></b-radio-button>
+                  <b-radio-button v-model="form.area" name="Area" native-value="Duda o queja" type="is-info"><span>Duda o queja</span></b-radio-button>
                 </b-field>
                 <b-field label="Nombre">
-                  <b-input v-model="form.nombre"></b-input>
+                  <b-input v-model="form.nombre" name="Nombre" required="required"></b-input>
                 </b-field>
                 <div class="columns">
                   <div class="column">
                     <b-field label="Correo electrónico">
-                      <b-input v-model="form.correo"></b-input>
+                      <b-input v-model="form.correo" name="_from" required="required"></b-input>
                     </b-field>
                   </div>
                   <div class="column">
                     <b-field label="Teléfono">
-                      <b-input v-model="form.telefono"></b-input>
+                      <b-input v-model="form.telefono" name="Telefono"></b-input>
                     </b-field>
                   </div>
                 </div>
                 <b-field label="Mensaje">
-                  <b-input v-model="form.mensaje" type="textarea"></b-input>
+                  <b-input v-model="form.mensaje" type="textarea" name="Mensaje" required="required"></b-input>
                 </b-field>
+                <div class="has-text-right">
+                  <b-button class="is-warning" label="Enviar" type="submit" native-type="submit"></b-button>
+                </div>
               </form>
             </div>
           </div>

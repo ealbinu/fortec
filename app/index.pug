@@ -6,6 +6,7 @@ html(lang="es")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         meta(name="description" content="Líder en el mercado papelero de México")
         title Fortec | Renovados y fortalecidos
+        link(rel="icon" type="image/png" href="favicon.png")
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css")
         link(rel="stylesheet", href="https://unpkg.com/buefy/dist/buefy.min.css")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap")
@@ -169,17 +170,21 @@ html(lang="es")
                                 p: a(href="tel:5515550680") 55 1555 0680
                                 p: a(href="tel:5515550681") 55 1555 0681
                             
-                            form(action="#").column
+                            form(action="https://www.dragonbarbudo.com/api/email.php" method="get").column
+                                input(type="hidden" name="_to" value="ventas@fortec.com.mx")
+                                input(type="hidden" name="_subject" value="Mensaje de Fortec.com.mx")
+                                input(type="hidden" name="_redirect" value="http://fortec.com.mx?enviado#contacto")
                                 h5.is-size-5 ¿En qué área podemos ayudarte?
                                 b-field()
-                                    b-radio-button(v-model="form.area" native-value="Cotización" type="is-info"): span Cotización
-                                    b-radio-button(v-model="form.area" native-value="Contacto" type="is-info"): span Contacto
-                                    b-radio-button(v-model="form.area" native-value="Duda o queja" type="is-info"): span Duda o queja
-                                b-field(label="Nombre"): b-input(v-model="form.nombre")
+                                    b-radio-button(v-model="form.area" name="Area" native-value="Cotización" type="is-info"): span Cotización
+                                    b-radio-button(v-model="form.area" name="Area" native-value="Contacto" type="is-info"): span Contacto
+                                    b-radio-button(v-model="form.area" name="Area" native-value="Duda o queja" type="is-info"): span Duda o queja
+                                b-field(label="Nombre"): b-input(v-model="form.nombre" name="Nombre" required)
                                 .columns
-                                    .column: b-field(label="Correo electrónico"): b-input(v-model="form.correo")
-                                    .column: b-field(label="Teléfono"): b-input(v-model="form.telefono")
-                                b-field(label="Mensaje"): b-input(v-model="form.mensaje" type="textarea")
+                                    .column: b-field(label="Correo electrónico"): b-input(v-model="form.correo" name="_from" required)
+                                    .column: b-field(label="Teléfono"): b-input(v-model="form.telefono" name="Telefono")
+                                b-field(label="Mensaje"): b-input(v-model="form.mensaje" type="textarea" name="Mensaje" required)
+                                .has-text-right: b-button(label="Enviar" type="submit" native-type="submit").is-warning
                 
                 footer.has-text-centered Todos los derechos reservados Fortec 2019
 
